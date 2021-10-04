@@ -51,10 +51,10 @@ public class BootStrapData implements CommandLineRunner  {
                 new HashSet<>()
         );
 
-        noEJB.setPublisher(myPublisher);
-//        myPublisher.getBooks().add(noEJB);
-
         publisherRepository.save(myPublisher);
+
+        noEJB.setPublisher(myPublisher);
+        bookRepository.save(noEJB);
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Books: " + bookRepository.count());
